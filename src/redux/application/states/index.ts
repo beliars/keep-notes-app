@@ -1,12 +1,7 @@
-import { UserModel } from '../../../shared/models/user.model';
-
-
-export interface UserState {
-  currentUserId?: string,
-  entities?: UserModel[],
+export interface ApplicationState {
+  appWidth: number;
 }
 
-export const initialState: UserState = {
-  currentUserId: undefined,
-  entities: [],
+export const initialState: ApplicationState = {
+  appWidth: 0,
 };

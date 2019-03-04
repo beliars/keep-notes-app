@@ -1,23 +1,13 @@
-import * as _ from 'lodash';
-
 import { Actions, ActionTypes } from '../actions';
-import { UserState, initialState } from '../states';
-import { UserModel } from '../../../shared/models/user.model';
+import { ApplicationState, initialState } from '../states';
 
-
-export function reducer(state = initialState, action: Actions): UserState {
+export function reducer(state = initialState, action: Actions): ApplicationState {
   switch (action.type) {
-    case ActionTypes.SET_USER:
-      const user = new UserModel(action.payload);
-      if (action.payload.userPhone) {
-        user.userPhoneId = action.payload.userPhone._id;
-        delete user.userPhone;
-      }
+    case ActionTypes.UPDATE_APP_WIDTH:
       return {
         ...state,
-        currentUserId: user._id,
-        entities: _.unionWith([user], state.entities, (a: any, b: any) => a._id === b._id),
-      }
+        appWidth: action.payload,
+      };
     default:
       return state;
   }

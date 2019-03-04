@@ -1,29 +1,15 @@
 import { Action } from 'redux';
 
-const USER = 'User';
+const APPLICATION = 'Application';
 
 export const ActionTypes = {
-  GET_USER: `[${USER}] Get User`,
-  SET_USER: `[${USER}] Set User`,
-  UPDATE_USER: `[${USER}] Update User`,
+  UPDATE_APP_WIDTH: `[${APPLICATION}] Update App Width`,
 };
 
-export class GetUserAction implements Action {
-  type = ActionTypes.GET_USER;
+export class UpdateAppWidthAction implements Action {
+  type = ActionTypes.UPDATE_APP_WIDTH;
   
   constructor(public payload?: any) {}
 }
 
-export class SetUserAction implements Action {
-  type = ActionTypes.SET_USER;
-  
-  constructor(public payload?: any) {}
-}
-
-export class UpdateUserAction implements Action {
-  type = ActionTypes.UPDATE_USER;
-  
-  constructor(public payload?: any) {}
-}
-
-export type Actions = GetUserAction | SetUserAction | UpdateUserAction;
+export type Actions = UpdateAppWidthAction;
