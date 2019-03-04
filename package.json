@@ -2,26 +2,34 @@
   "name": "keep-notes-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "@types/jest": "24.0.9",
-    "@types/node": "11.9.6",
-    "@types/react": "16.8.6",
-    "@types/react-dom": "16.8.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-observable": "^1.0.0",
     "rxjs": "^6.4.0",
     "typescript": "3.3.3333"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "@types/lodash": "^4.14.121",
+    "@types/node": "^11.9.6",
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-redux": "^7.0.1",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/redux-form": "^7.5.2"
   },
   "eslintConfig": {
     "extends": "react-app"
