@@ -7,6 +7,7 @@ import store from '../../redux/store';
 import Header from '../Header/Header';
 import HomePage from '../pages/HomePage/HomePage';
 import AuthPage from '../pages/AuthPage/AuthPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 export default class App extends Component {
   render() {
@@ -19,7 +20,7 @@ export default class App extends Component {
               <Switch>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/auth" component={AuthPage}/>
-                {/*<Route component={NotFoundPage}/>*/}
+                <Route component={NotFoundPage}/>
               </Switch>
             </main>
           </Router>
