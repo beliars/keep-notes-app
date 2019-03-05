@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import './App.scss';
 import store from '../../redux/store';
-import Header from '../Header/Header';
-import HomePage from '../pages/HomePage/HomePage';
-import AuthPage from '../pages/AuthPage/AuthPage';
+import Auth from './Auth/Auth';
+import Main from './Main/Main';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 export default class App extends Component {
@@ -14,12 +13,11 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <div className="app">
-          <Header />
           <Router>
             <main className='main-page'>
               <Switch>
-                <Route path="/" exact component={HomePage}/>
-                <Route path="/auth" component={AuthPage}/>
+                <Route path="/" exact component={Main}/>
+                <Route path="/auth" component={Auth}/>
                 <Route component={NotFoundPage}/>
               </Switch>
             </main>
