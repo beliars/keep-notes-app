@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFoundPage = (props: any) => {
+const NotFound = (props: any) => {
     const {location} = props;
     return (
         <div style={{textAlign: 'center'}}>
@@ -14,4 +14,4 @@ const NotFoundPage = (props: any) => {
     );
 };
 
-export default NotFoundPage;
+export default NotFound;

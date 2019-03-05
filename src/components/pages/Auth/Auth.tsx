@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './AuthPage.scss';
+import './Auth.scss';
 
-const AuthPage = () => {
+const Auth = () => {
   return (
     <div className="auth-page">Auth page</div>
   );
 };
 
-export default AuthPage;
+export default Auth;

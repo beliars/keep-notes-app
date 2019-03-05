@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 
-import AuthPage from '../../pages/AuthPage/AuthPage';
+import Auth from '../../pages/Auth/Auth';
 
-export default class Auth extends Component {
+export default class AuthRoutes extends Component {
   render() {
     return (
         <div className="app-auth">
-          <Route path="" component={AuthPage}/>
+          <Route path="" component={Auth}/>
         </div>
     );
   }
