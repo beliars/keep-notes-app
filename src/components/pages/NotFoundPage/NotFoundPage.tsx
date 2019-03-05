@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const NotFoundPage = (props: any) => {
     const {location} = props;
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             <h3>
                 404 - Not found!
             </h3>
