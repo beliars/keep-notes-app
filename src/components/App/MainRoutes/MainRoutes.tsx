@@ -1,20 +1,10 @@
 import React from 'react';
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
 
-import Home from '../../../pages/Home/Home';
-import NotFound from '../../../pages/NotFound/NotFound';
-import Header from '../../Header/Header';
+import AppDrawer from '../../AppDrawer/AppDrawer';
 
-
-const MainRoutes = ({match}: RouteComponentProps) => {
+const MainRoutes = () => {
   return (
-    <div className="app-main">
-      <Header/>
-      <Switch>
-        <Route path="" exact component={Home}/>
-        <Route component={NotFound}/>
-      </Switch>
-    </div>
+    <AppDrawer/>
   );
 };
 
