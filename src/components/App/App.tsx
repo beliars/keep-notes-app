@@ -6,7 +6,7 @@ import './App.scss';
 import store from '../../redux/store';
 import AuthRoutes from './AuthRoutes/AuthRoutes';
 import MainRoutes from './MainRoutes/MainRoutes';
-import NotFound from '../pages/NotFound/NotFound';
+import NotFound from '../../pages/NotFound/NotFound';
 
 export default class App extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class App extends Component {
             <main className='main-page'>
               <Switch>
                 <Route path="/" exact component={MainRoutes}/>
-                <Route path="/auth" component={AuthRoutes}/>
+                <Route path="/" component={AuthRoutes}/>
                 <Route component={NotFound}/>
               </Switch>
             </main>

@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from "react-router-dom";
 
-import Auth from '../../pages/Auth/Auth';
+import SignUp from '../../../pages/SignUp/SignUp';
+import SignIn from '../../../pages/SignIn/SignIn';
+import NotFound from '../../../pages/NotFound/NotFound';
 
-export default class AuthRoutes extends Component {
-  render() {
-    return (
-        <div className="app-auth">
-          <Route path="" component={Auth}/>
-        </div>
-    );
-  }
-}
+
+const AuthRoutes = () => {
+  return (
+    <div className="app-auth">
+      <Switch>
+        <Route path="/sign-up" exact component={SignUp}/>
+        <Route path="/sign-in" exact component={SignIn}/>
+        <Route component={NotFound}/>
+      </Switch>
+    </div>
+  );
+};
+
+export default AuthRoutes;
