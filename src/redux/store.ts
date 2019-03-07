@@ -13,7 +13,7 @@ import { applicationEpics } from './application/epics';
 
 
 export interface RootState {
-  applicationState: ApplicationState,
+  application: ApplicationState,
 }
 
 const rootReducer = combineReducers({

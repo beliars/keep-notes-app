@@ -4,6 +4,7 @@ const APPLICATION = 'Application';
 
 export const ActionTypes = {
   UPDATE_APP_WIDTH: `[${APPLICATION}] Update App Width`,
+  TOGGLE_SIDEBAR: `[${APPLICATION}] Toggle Sidebar`,
 };
 
 export class UpdateAppWidthAction implements Action {
@@ -12,4 +13,10 @@ export class UpdateAppWidthAction implements Action {
   constructor(public payload?: any) {}
 }
 
-export type Actions = UpdateAppWidthAction;
+export class ToggleSidebarAction implements Action {
+  type = ActionTypes.TOGGLE_SIDEBAR;
+  
+  constructor(public payload?: any) {}
+}
+
+export type Actions = UpdateAppWidthAction | ToggleSidebarAction;
