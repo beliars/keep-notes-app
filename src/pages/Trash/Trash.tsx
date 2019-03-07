@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import './SignIn.scss';
+import './Trash.scss';
 
-export default class SignIn extends Component {
+export default class Trash extends Component {
   render() {
     return (
-      <div className="signin-page">
-        Sign in page
+      <div className="trash-page">
+        Trash page
       </div>
     );
   }
