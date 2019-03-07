@@ -6,11 +6,17 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 import './App.scss';
 import store from '../../redux/store';
-import AuthRoutes from './AuthRoutes/AuthRoutes';
-import MainRoutes from './MainRoutes/MainRoutes';
+import SignUp from '../../pages/SignUp/SignUp';
+import SignIn from '../../pages/SignIn/SignIn';
+import Home from '../../pages/Home/Home';
+import Trash from '../../pages/Trash/Trash';
 import NotFound from '../../pages/NotFound/NotFound';
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+});
 
 export default class App extends Component {
   render() {
@@ -19,10 +25,12 @@ export default class App extends Component {
         <MuiThemeProvider theme={theme}>
           <div className="app">
             <Router>
-              <main className='main-page'>
+              <main className='main'>
                 <Switch>
-                  <Route path="/" exact component={MainRoutes}/>
-                  <Route path="/" component={AuthRoutes}/>
+                  <Route path="/sign-up" exact component={SignUp}/>
+                  <Route path="/sign-in" exact component={SignIn}/>
+                  <Route path="/" exact component={Home}/>
+                  <Route path="/trash" component={Trash}/>
                   <Route component={NotFound}/>
                 </Switch>
               </main>
