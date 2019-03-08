@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './Trash.scss';
-import Header from '../../components/Header/Header';
+import Header from '../../shared/components/Header/Header';
 
 export default class Trash extends Component {
   render() {
