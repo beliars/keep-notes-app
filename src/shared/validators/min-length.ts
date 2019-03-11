@@ -1,0 +1,1 @@
+export default (value: string, length: number): string | undefined => value && value.length < length ? `${length} characters min` : undefined;

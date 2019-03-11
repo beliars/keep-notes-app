@@ -1,0 +1,1 @@
+export default (value: string): string | undefined => value ? undefined : 'Required';

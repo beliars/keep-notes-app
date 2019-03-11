@@ -35,7 +35,7 @@ interface DispatchProps {
 
 type Props = StateProps & DispatchProps;
 
-function Header(props: any) {
+const Header = (props: any) => {
   const {classes, toggleSidebar} = props;
   return (
     <div className={classes.root}>
@@ -51,7 +51,7 @@ function Header(props: any) {
       </AppBar>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state: RootState): StateProps => ({
   application: state.application,
