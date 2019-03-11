@@ -15,7 +15,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    // "isolatedModules": true,       /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
     "noEmit": true,
     "jsx": "preserve"
   },
