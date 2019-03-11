@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { ApplicationState } from './application/states';
 
 // reducers
+import { reducer as formReducer } from 'redux-form';
 import { reducer as applicationReducer } from './application/reducers';
 
 // epics
@@ -18,6 +19,7 @@ export interface RootState {
 
 const rootReducer = combineReducers({
   application: applicationReducer,
+  form: formReducer,
 });
 
 const rootEpic = combineEpics(
