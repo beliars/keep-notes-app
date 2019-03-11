@@ -1,9 +1,11 @@
 import React from 'react';
 import {WrappedFieldProps} from 'redux-form';
 
+import TextField from '@material-ui/core/TextField';
+
 export interface OwnProps {
   id: string,
-  labelText: string,
+  label: string,
   placeholder?: string,
   type: string,
   step?: string,
@@ -15,26 +17,19 @@ type Props = OwnProps & WrappedFieldProps;
 
 const FormField = (props: Props) => {
   const {
-    id, placeholder, step, min, input, labelText, type, disabled, meta: {touched, error}
+    id, placeholder, input, label, type, disabled, meta: {touched, error}
   } = props;
-  
   return (
-    <div className='form-field'>
-      <label
-        htmlFor={id}
-        className={type==='number' ? 'input-label input-label-number' : 'input-label'}
-      >
-        {labelText}
-      </label>
-      <input
-        className={type==='number' ? 'input input-number' : 'input'}
+    <div className='form-field-wrapper'>
+      <TextField
+        className={type==='number' ? 'form-field form-field-number' : 'form-field'}
         {...input}
-        type={type}
-        step={step}
-        min={min}
         id={id}
+        type={type}
+        label={label}
         placeholder={placeholder}
         disabled={disabled}
+        margin="normal"
       />
       {touched && (error && <span className='error error-field'>{error}</span>)}
     </div>
