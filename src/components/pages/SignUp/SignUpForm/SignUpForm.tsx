@@ -1,7 +1,14 @@
 import React from 'react'
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
+import { compose } from 'redux';
 
+import Button from '@material-ui/core/Button';
+
+import './SignUpForm.scss';
 import FormField from '../../../../shared/components/FormField/FormField';
+import requiredValidator from '../../../../shared/validators/required';
+import emailValidator from '../../../../shared/validators/email';
+import minLengthValidator from '../../../../shared/validators/min-length';
 
 export interface OwnProps {
   isLoading: boolean,
@@ -12,33 +19,39 @@ export interface SignUpFormData {
   password: string,
 }
 
-type Props = OwnProps & InjectedFormProps;
+type Props = OwnProps & InjectedFormProps<SignUpFormData, OwnProps>;
 
-const SignUpForm = (props: Props) => {
+const minLength = (value: string) => minLengthValidator(value, 6);
+
+const SignUpForm: React.FunctionComponent<Props> = (props: Props) => {
   const { handleSubmit, pristine, isLoading } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={"signup-form"}>
       <Field
         name="email"
         type="email"
-        component={FormField}
         label="Email"
+        component={FormField}
+        validate={[requiredValidator, emailValidator]}
       />
       <Field
         name="password"
         type="password"
-        component={FormField}
         label="Password"
+        component={FormField}
+        validate={[requiredValidator, minLength]}
       />
-      <div>
-        <button type="submit" disabled={pristine || isLoading}>
-          Submit
-        </button>
+      <div className="btn-wrap">
+        <Button variant="contained" disabled={pristine || props.invalid || isLoading}>
+          Sign up
+        </Button>
       </div>
     </form>
   )
 };
 
-export default reduxForm<SignUpFormData, any>({
-  form: 'signUpForm',
-})(SignUpForm);
+export default compose<React.FunctionComponent<OwnProps>>(
+  reduxForm<SignUpFormData, OwnProps>({
+    form: 'signUpForm',
+  })
+)(SignUpForm);

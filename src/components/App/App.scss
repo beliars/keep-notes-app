@@ -1,4 +1,38 @@
 @import '../../styles/variables';
 
 .app {
+  .main {
+    .signup-form,
+    .signin-form {
+      text-align: center;
+      width: 380px;
+      margin: 100px auto 0;
+      padding: 20px 20px 50px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      .form-field-wrapper {
+        display: flex;
+        justify-content: center;
+        .form-field {
+          width: 300px;
+        }
+      }
+      .btn-wrap {
+        margin-top: 25px;
+      }
+    }
+    .form-field-wrapper {
+      position: relative;
+      .error {
+        &.error-field {
+          position: absolute;
+          bottom: -12px;
+          color: #f43;
+          font-size: 12px;
+          text-align: left;
+          display: block;
+        }
+      }
+    }
+  }
 }
