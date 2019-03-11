@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
 
-import FormField from '../../../shared/components/FormField/FormField';
+import FormField from '../../../../shared/components/FormField/FormField';
 
 export interface OwnProps {
   isLoading: boolean,

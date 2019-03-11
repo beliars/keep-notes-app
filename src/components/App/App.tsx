@@ -6,11 +6,11 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 import './App.scss';
 import store from '../../redux/store';
-import SignUp from '../../pages/SignUp/SignUp';
-import SignIn from '../../pages/SignIn/SignIn';
-import Home from '../../pages/Home/Home';
-import Trash from '../../pages/Trash/Trash';
-import NotFound from '../../pages/NotFound/NotFound';
+import SignUp from '../pages/SignUp/SignUp';
+import SignIn from '../pages/SignIn/SignIn';
+import Home from '../pages/Home/Home';
+import Trash from '../pages/Trash/Trash';
+import NotFound from '../pages/NotFound/NotFound';
 
 const theme = createMuiTheme({
   typography: {
