@@ -22,6 +22,7 @@ const FormField = (props: Props) => {
   return (
     <div className='form-field-wrapper'>
       <TextField
+        error={!!(touched && error)}
         className={type==='number' ? 'form-field form-field-number' : 'form-field'}
         {...input}
         id={id}
