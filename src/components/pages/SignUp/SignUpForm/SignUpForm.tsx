@@ -42,7 +42,7 @@ const SignUpForm: React.FunctionComponent<Props> = (props: Props) => {
         validate={[requiredValidator, minLength]}
       />
       <div className="btn-wrap">
-        <Button variant="contained" disabled={pristine || props.invalid || isLoading}>
+        <Button type="submit" variant="contained" disabled={pristine || props.invalid || isLoading}>
           Sign up
         </Button>
       </div>
@@ -50,7 +50,7 @@ const SignUpForm: React.FunctionComponent<Props> = (props: Props) => {
   )
 };
 
-export default compose<React.FunctionComponent<OwnProps>>(
+export default compose<React.FunctionComponent<any>>(
   reduxForm<SignUpFormData, OwnProps>({
     form: 'signUpForm',
   })
