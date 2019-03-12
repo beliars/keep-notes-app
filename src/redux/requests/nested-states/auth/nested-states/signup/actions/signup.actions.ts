@@ -9,22 +9,22 @@ export const ActionTypes = {
   REQUEST_FAIL: `[${SIGNUP}] Request Failed`,
 };
 
-export class SignupAction implements Action {
+export class SignUpAction implements Action {
   type = ActionTypes.REQUEST;
 
   constructor(public payload?: any) {}
 }
 
-export class SignupSuccessAction implements Action {
+export class SignUpSuccessAction implements Action {
   type = ActionTypes.REQUEST_SUCCESS;
 
   constructor(public payload?: any) {}
 }
 
-export class SignupFailAction implements Action {
+export class SignUpFailAction implements Action {
   type = ActionTypes.REQUEST_FAIL;
 
   constructor(public payload?: any) {}
 }
 
-export type Actions = SignupAction | SignupSuccessAction | SignupFailAction;
+export type Actions = SignUpAction | SignUpSuccessAction | SignUpFailAction;
