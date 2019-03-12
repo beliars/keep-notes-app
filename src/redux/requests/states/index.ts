@@ -9,7 +9,7 @@ export interface RequestsNestedState {
 }
 
 export interface RequestsState {
-  auth?: AuthRequestsState,
+  auth: AuthRequestsState,
 }
 
 export const initialState: RequestsState = {
