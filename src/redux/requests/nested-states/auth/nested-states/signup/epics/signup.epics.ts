@@ -2,7 +2,7 @@ import { Observable, of } from 'rxjs';
 import { Action } from 'redux';
 import { ofType } from 'redux-observable';
 
-import { SignupAction, SignupActionTypes } from '../actions';
+import { Actions, ActionTypes } from '../actions';
 //import authService from '../../../../../../../shared/services/auth.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
