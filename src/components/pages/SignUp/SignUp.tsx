@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './SignUp.scss';
 import SignUpForm, { SignUpFormData } from './SignUpForm/SignUpForm';
 import { RootState } from '../../../redux/store';
-import { ActionTypes } from '../../../redux/application/actions';
+import { ActionTypes } from '../../../redux/auth/actions';
 import { AuthRequestsState } from '../../../redux/requests/nested-states/auth/states';
 import { connect } from 'react-redux';
 
@@ -25,7 +25,6 @@ class SignUp extends Component<Props, StateProps> {
   
   render() {
     const {authRequests} = this.props;
-    console.log(authRequests);
     return (
       <div className="signup-page">
         <SignUpForm isLoading={authRequests.signup.loading} onSubmit={this.handleSubmitSignUpForm}/>
@@ -41,7 +40,7 @@ const mapStateToProps = (state: RootState): StateProps => ({
 const mapDispatchToProps = (dispatch: any): DispatchProps => (
   {
     submitSignUpForm: () => {
-      dispatch({type: ActionTypes.TOGGLE_SIDEBAR});
+      dispatch({type: ActionTypes.SIGN_UP});
     },
   }
 );

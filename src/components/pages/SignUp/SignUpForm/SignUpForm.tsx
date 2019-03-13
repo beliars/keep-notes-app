@@ -12,6 +12,7 @@ import minLengthValidator from '../../../../shared/validators/min-length';
 
 export interface OwnProps {
   isLoading: boolean,
+  onSubmit: (...args: any[]) => any,
 }
 
 export interface SignUpFormData {
@@ -50,7 +51,7 @@ const SignUpForm: React.FunctionComponent<Props> = (props: Props) => {
   )
 };
 
-export default compose<React.FunctionComponent<any>>(
+export default compose<React.FunctionComponent<OwnProps>>(
   reduxForm<SignUpFormData, OwnProps>({
     form: 'signUpForm',
   })
