@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
 
-const SIGNUP = 'SignUp';
+const SIGNUP = 'Signup';
 
 export const ActionTypes = {
   REQUEST: `[${SIGNUP}] Request`,
