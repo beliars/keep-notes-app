@@ -2,24 +2,33 @@
 
 .app {
   .main {
-    .signup-form,
-    .signin-form {
-      text-align: center;
-      width: 380px;
-      margin: 250px auto 0;
-      padding: 20px 20px 50px;
-      border: 1px solid gray;
-      border-radius: 5px;
-      background: $light-gray;
-      .form-field-wrapper {
-        display: flex;
-        justify-content: center;
-        .form-field {
-          width: 300px;
-        }
+    .signup-page,
+    .signin-page {
+      .page-title {
+        text-align: center;
+        margin: 70px 0 50px;
+        font-size: 36px;
+        color: #7b7878;
       }
-      .btn-wrap {
-        margin-top: 25px;
+      .signup-form,
+      .signin-form {
+        text-align: center;
+        width: 380px;
+        margin: 0 auto;
+        padding: 20px 20px 50px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background: $light-gray;
+        .form-field-wrapper {
+          display: flex;
+          justify-content: center;
+          .form-field {
+            width: 300px;
+          }
+        }
+        .btn-wrap {
+          margin-top: 25px;
+        }
       }
     }
     .form-field-wrapper {

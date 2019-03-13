@@ -27,6 +27,9 @@ class SignUp extends Component<Props, StateProps> {
     const {authRequests} = this.props;
     return (
       <div className="signup-page">
+        <div className="page-title">
+          Sign up
+        </div>
         <SignUpForm isLoading={authRequests.signUp.loading} onSubmit={this.handleSubmitSignUpForm}/>
       </div>
     );
