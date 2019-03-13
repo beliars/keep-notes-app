@@ -39,8 +39,11 @@ const mapStateToProps = (state: RootState): StateProps => ({
 
 const mapDispatchToProps = (dispatch: any): DispatchProps => (
   {
-    submitSignUpForm: () => {
-      dispatch({type: ActionTypes.SIGN_UP});
+    submitSignUpForm: (data: SignUpFormData) => {
+      dispatch({
+        type: ActionTypes.SIGN_UP,
+        payload: data
+      });
     },
   }
 );

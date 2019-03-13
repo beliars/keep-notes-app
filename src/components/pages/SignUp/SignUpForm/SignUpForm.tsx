@@ -36,6 +36,13 @@ const SignUpForm: React.FunctionComponent<Props> = (props: Props) => {
         validate={[requiredValidator, emailValidator]}
       />
       <Field
+        name="username"
+        type="text"
+        label="Username"
+        component={FormField}
+        validate={[requiredValidator]}
+      />
+      <Field
         name="password"
         type="password"
         label="Password"
