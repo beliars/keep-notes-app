@@ -6,7 +6,7 @@ export function reducer(state = initialState, action: Actions): AuthState {
     case ActionTypes.SET_TOKEN: {
       return {
         ...state,
-        token: action.payload.token,
+        token: action.payload,
       };
     }
   
