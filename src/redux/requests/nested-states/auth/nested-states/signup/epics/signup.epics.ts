@@ -11,7 +11,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export const signUpEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(SignUpActionTypes.REQUEST),
   switchMap((action: SignUpAction): Observable<Action> => {
-    return authService.signup(action.payload).pipe(
+    return authService.signUp(action.payload).pipe(
       map((res: AxiosResponse) => ({
         type: SignUpActionTypes.REQUEST_SUCCESS,
         payload: res,

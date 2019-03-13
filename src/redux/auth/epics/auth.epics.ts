@@ -5,7 +5,7 @@ import { ignoreElements, map, switchMap, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
 
 import * as authRequests from '../../requests/nested-states/auth/actions';
-import { ActionTypes, SignUpAction } from '../actions';
+import { ActionTypes, SignInAction, SignUpAction } from '../actions';
 import authService from '../../../shared/services/auth.service';
 
 const signUpEpic = (action$: Observable<Action>) => action$.pipe(
@@ -14,6 +14,16 @@ const signUpEpic = (action$: Observable<Action>) => action$.pipe(
   ),
   map((action: SignUpAction) => ({
     type: authRequests.SignUpActionTypes.REQUEST,
+    payload: action.payload,
+  })),
+);
+
+const signInEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(
+    ActionTypes.SIGN_IN,
+  ),
+  map((action: SignInAction) => ({
+    type: authRequests.SignInActionTypes.REQUEST,
     payload: action.payload,
   })),
 );
@@ -38,13 +48,15 @@ const setTokenEpic = (action$: Observable<Action>) => action$.pipe(
     ActionTypes.SET_TOKEN,
   ),
   tap((action: authRequests.SignUpSuccessAction) => {
-    authService.setToken(action.payload.token);
+    debugger;
+    authService.setToken(action.payload);
   }),
   map(() => ({type: ActionTypes.SET_GUEST_IS_FALSE})),
 );
 
 export const authEpics = [
   signUpEpic,
+  signInEpic,
   successAuthEpic,
   setTokenEpic,
 ];
