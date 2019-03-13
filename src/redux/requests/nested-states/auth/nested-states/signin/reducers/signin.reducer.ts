@@ -1,19 +1,19 @@
-import { Actions, ActionTypes } from '../actions';
+import { SignInActions, SignInActionTypes } from '../actions';
 import { initialState } from '../states';
 import { RequestsNestedState } from '../../../../../states';
 
 
-export function reducer(state = initialState, action: Actions): RequestsNestedState {
+export function reducer(state = initialState, action: SignInActions): RequestsNestedState {
   switch (action.type) {
-    case ActionTypes.REQUEST:
+    case SignInActionTypes.REQUEST:
       return {
         loading: true,
         loaded: false,
         errors: null,
         data: null,
       };
-    case ActionTypes.REQUEST_SUCCESS:
-    case ActionTypes.REQUEST_FAIL:
+    case SignInActionTypes.REQUEST_SUCCESS:
+    case SignInActionTypes.REQUEST_FAIL:
       return {
         ...state,
         loading: false,

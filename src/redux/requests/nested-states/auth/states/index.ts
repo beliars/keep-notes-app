@@ -1,11 +1,14 @@
 import { RequestsNestedState } from '../../../states';
-import { initialState as signupState } from '../nested-states/signup/states';
+import { initialState as signUpState } from '../nested-states/signup/states';
+import { initialState as signInState } from '../nested-states/signin/states';
 
 
 export interface AuthRequestsState {
-  signup: RequestsNestedState,
+  signUp: RequestsNestedState,
+  signIn: RequestsNestedState,
 }
 
 export const authState = {
-  signup: signupState,
+  signUp: signUpState,
+  signIn: signInState,
 } as AuthRequestsState;

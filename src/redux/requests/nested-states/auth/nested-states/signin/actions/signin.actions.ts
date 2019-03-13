@@ -1,30 +1,30 @@
 import { Action } from 'redux';
 
 
-const SIGNUP = 'Signup';
+const SIGNIN = 'SignIn';
 
 export const ActionTypes = {
-  REQUEST: `[${SIGNUP}] Request`,
-  REQUEST_SUCCESS: `[${SIGNUP}] Request Success`,
-  REQUEST_FAIL: `[${SIGNUP}] Request Failed`,
+  REQUEST: `[${SIGNIN}] Request`,
+  REQUEST_SUCCESS: `[${SIGNIN}] Request Success`,
+  REQUEST_FAIL: `[${SIGNIN}] Request Failed`,
 };
 
-export class SignUpAction implements Action {
+export class SignInAction implements Action {
   type = ActionTypes.REQUEST;
 
   constructor(public payload?: any) {}
 }
 
-export class SignUpSuccessAction implements Action {
+export class SignInSuccessAction implements Action {
   type = ActionTypes.REQUEST_SUCCESS;
 
   constructor(public payload?: any) {}
 }
 
-export class SignUpFailAction implements Action {
+export class SignInFailAction implements Action {
   type = ActionTypes.REQUEST_FAIL;
 
   constructor(public payload?: any) {}
 }
 
-export type Actions = SignUpAction | SignUpSuccessAction | SignUpFailAction;
+export type Actions = SignInAction | SignInSuccessAction | SignInFailAction;

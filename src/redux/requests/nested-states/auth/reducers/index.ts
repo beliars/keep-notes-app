@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { reducer as signupReducer } from '../nested-states/signup/reducers';
+import { reducer as signUpReducer } from '../nested-states/signup/reducers';
+import { reducer as signInReducer } from '../nested-states/signin/reducers';
 
 export const authReducer = combineReducers({
-  signup: signupReducer,
+  signUp: signUpReducer,
+  signIn: signInReducer,
 });

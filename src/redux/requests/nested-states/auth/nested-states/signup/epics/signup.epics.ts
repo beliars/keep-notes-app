@@ -8,7 +8,7 @@ import authService from '../../../../../../../shared/services/auth.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 
-export const signupEpic = (action$: Observable<Action>) => action$.pipe(
+export const signUpEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(SignUpActionTypes.REQUEST),
   switchMap((action: SignUpAction): Observable<Action> => {
     return authService.signup(action.payload).pipe(

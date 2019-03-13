@@ -3,21 +3,21 @@ import { Action } from 'redux';
 import { ofType } from 'redux-observable';
 import { AxiosResponse } from 'axios';
 
-import { ActionTypes, SignUpAction } from '../actions';
+import { SignInActionTypes, SignInAction } from '../actions';
 import authService from '../../../../../../../shared/services/auth.service';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 
-export const signupEpic = (action$: Observable<Action>) => action$.pipe(
-  ofType(ActionTypes.REQUEST),
-  switchMap((action: SignUpAction): Observable<Action> => {
+export const signInEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(SignInActionTypes.REQUEST),
+  switchMap((action: SignInAction): Observable<Action> => {
     return authService.signup(action.payload).pipe(
       map((res: AxiosResponse) => ({
-        type: ActionTypes.REQUEST_SUCCESS,
+        type: SignInActionTypes.REQUEST_SUCCESS,
         payload: res,
       })),
       catchError(error => of({
-        type: ActionTypes.REQUEST_FAIL,
+        type: SignInActionTypes.REQUEST_FAIL,
         payload: {errors: error},
       })),
     );
