@@ -1,24 +1,25 @@
 import { Observable, of } from 'rxjs';
 import { Action } from 'redux';
 import { ofType } from 'redux-observable';
+import { AxiosResponse } from 'axios';
 
-import { Actions, ActionTypes } from '../actions';
-//import authService from '../../../../../../../shared/services/auth.service';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { ActionTypes, SignUpAction } from '../actions';
+import authService from '../../../../../../../shared/services/auth.service';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 
 export const signupEpic = (action$: Observable<Action>) => action$.pipe(
-//  ofType(SignupActionTypes.REQUEST),
-//  switchMap((action: SignupAction): Observable<Action> => {
-//    return authService.signup(action.payload).pipe(
-//      map((res: FetchResult) => ({
-//        type: res.errors ? SignupActionTypes.REQUEST_FAIL : SignupActionTypes.REQUEST_SUCCESS,
-//        payload: res,
-//      })),
-//    );
-//  }),
-//  catchError(error => of({
-//    type: SignupActionTypes.REQUEST_FAIL,
-//    payload: {errors: error},
-//  })),
+  ofType(ActionTypes.REQUEST),
+  switchMap((action: SignUpAction): Observable<Action> => {
+    return authService.signup(action.payload).pipe(
+      map((res: AxiosResponse) => ({
+        type: ActionTypes.REQUEST_SUCCESS,
+        payload: res,
+      })),
+      catchError(error => of({
+        type: ActionTypes.REQUEST_FAIL,
+        payload: {errors: error},
+      })),
+    );
+  }),
 );

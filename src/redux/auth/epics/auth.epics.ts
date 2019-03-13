@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import * as authRequests from '../../requests/nested-states/auth/actions';
 import { ActionTypes, SignUpAction } from '../actions';
 
-const signupEpic = (action$: Observable<Action>) => action$.pipe(
+const signUpEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(ActionTypes.SIGN_UP),
   map((action: SignUpAction) => ({
     type: authRequests.ActionTypes.REQUEST,
@@ -15,5 +15,5 @@ const signupEpic = (action$: Observable<Action>) => action$.pipe(
 );
 
 export const authEpics = [
-  signupEpic,
+  signUpEpic,
 ];

@@ -33,7 +33,7 @@ const rootReducer = combineReducers({
 });
 
 const rootEpic = combineEpics(
-    //...requestsEpics,
+    ...requestsEpics,
     ...applicationEpics,
     ...authEpics,
 );
