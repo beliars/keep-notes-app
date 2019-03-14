@@ -6,6 +6,7 @@ import { RootState } from '../../../redux/store';
 import { ActionTypes } from '../../../redux/auth/actions';
 import { AuthRequestsState } from '../../../redux/requests/nested-states/auth/states';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 interface StateProps {
   authRequests: AuthRequestsState,
@@ -27,10 +28,11 @@ class SignIn extends Component<Props, StateProps> {
     const {authRequests} = this.props;
     return (
       <div className="signin-page">
-        <div className="page-title">
-          Sign in
-        </div>
+        <div className="page-title">Sign in</div>
         <SignUpForm isLoading={authRequests.signIn.loading} onSubmit={this.handleSubmitSignInForm}/>
+        <div className="link-wrap">
+          <Link className="link" to="/sign-up">Sign up</Link>
+        </div>
       </div>
     );
   }

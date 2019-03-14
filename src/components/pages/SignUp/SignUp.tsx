@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 import './SignUp.scss';
 import SignUpForm, { SignUpFormData } from './SignUpForm/SignUpForm';
@@ -27,10 +28,11 @@ class SignUp extends Component<Props, StateProps> {
     const {authRequests} = this.props;
     return (
       <div className="signup-page">
-        <div className="page-title">
-          Sign up
-        </div>
+        <div className="page-title">Sign up</div>
         <SignUpForm isLoading={authRequests.signUp.loading} onSubmit={this.handleSubmitSignUpForm}/>
+        <div className="link-wrap">
+          <Link className="link" to="/sign-in">Sign in</Link>
+        </div>
       </div>
     );
   }
