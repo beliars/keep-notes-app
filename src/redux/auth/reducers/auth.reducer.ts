@@ -3,16 +3,18 @@ import { AuthState, initialState } from '../states';
 
 export function reducer(state = initialState, action: Actions): AuthState {
   switch (action.type) {
-    case ActionTypes.SET_TOKEN: {
+    case ActionTypes.SET_SESSION_DATA: {
       return {
         ...state,
-        token: action.payload,
+        selfId: action.payload.selfId,
+        token: action.payload.token,
       };
     }
   
-    case ActionTypes.REMOVE_TOKEN: {
+    case ActionTypes.REMOVE_SESSION_DATA: {
       return {
         ...state,
+        selfId: '',
         token: '',
       };
     }

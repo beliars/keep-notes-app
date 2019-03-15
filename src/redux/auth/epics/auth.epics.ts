@@ -36,19 +36,20 @@ const successAuthEpic = (action$: Observable<Action>) => action$.pipe(
   map((action: authRequests.SignUpSuccessAction) => {
     const data = action.payload.data;
     const token = _.get(data, 'token.id');
+    const selfId = _.get(data, 'user._id');
     return {
-      type: ActionTypes.SET_TOKEN,
-      payload: token,
+      type: ActionTypes.SET_SESSION_DATA,
+      payload: {token, selfId},
     }
   }),
 );
 
 const setTokenEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(
-    ActionTypes.SET_TOKEN,
+    ActionTypes.SET_SESSION_DATA,
   ),
   tap((action: authRequests.SignUpSuccessAction) => {
-    authService.setToken(action.payload);
+    authService.setSessionData(action.payload);
   }),
   map(() => ({type: ActionTypes.SET_GUEST_IS_FALSE})),
 );

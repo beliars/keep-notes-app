@@ -6,8 +6,8 @@ export const ActionTypes = {
   SIGN_UP: `[${AUTH}] Sign Up`,
   SIGN_IN: `[${AUTH}] Sign In`,
   
-  SET_TOKEN: `[${AUTH}] Set Token`,
-  REMOVE_TOKEN: `[${AUTH}] Remove Token`,
+  SET_SESSION_DATA: `[${AUTH}] Set Session Data`,
+  REMOVE_SESSION_DATA: `[${AUTH}] Remove Session Data`,
   
   SET_GUEST_IS_TRUE: `[${AUTH}] Set Guest Is True`,
   SET_GUEST_IS_FALSE: `[${AUTH}] Set Guest Is False`,
@@ -25,14 +25,14 @@ export class SignInAction implements Action {
   constructor(public payload?: any) {}
 }
 
-export class SetTokenAction implements Action {
-  type = ActionTypes.SET_TOKEN;
+export class SetSessionDataAction implements Action {
+  type = ActionTypes.SET_SESSION_DATA;
   
   constructor(public payload?: any) {}
 }
 
-export class RemoveTokenAction implements Action {
-  type = ActionTypes.REMOVE_TOKEN;
+export class RemoveSessionDataAction implements Action {
+  type = ActionTypes.REMOVE_SESSION_DATA;
   
   constructor(public payload?: any) {}
 }
@@ -51,5 +51,5 @@ export class SetGuestIsFalseAction implements Action {
   }
 }
 
-export type Actions = SignUpAction | SignInAction | SetTokenAction |
-  RemoveTokenAction | SetGuestIsTrueAction | SetGuestIsFalseAction;
+export type Actions = SignUpAction | SignInAction | SetSessionDataAction |
+  RemoveSessionDataAction | SetGuestIsTrueAction | SetGuestIsFalseAction;
