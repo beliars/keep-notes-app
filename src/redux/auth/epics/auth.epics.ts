@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Action } from 'redux';
 import { ofType } from 'redux-observable';
-import { ignoreElements, map, switchMap, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
 
 import * as authRequests from '../../requests/nested-states/auth/actions';
@@ -48,7 +48,6 @@ const setTokenEpic = (action$: Observable<Action>) => action$.pipe(
     ActionTypes.SET_TOKEN,
   ),
   tap((action: authRequests.SignUpSuccessAction) => {
-    debugger;
     authService.setToken(action.payload);
   }),
   map(() => ({type: ActionTypes.SET_GUEST_IS_FALSE})),

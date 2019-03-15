@@ -1,9 +1,9 @@
 export interface AuthState {
   token: string;
-  isGuest: boolean | any;
+  isGuest: boolean;
 }
 
 export const initialState: AuthState = {
   token: '',
-  isGuest: null,
+  isGuest: true,
 };
