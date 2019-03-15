@@ -7,6 +7,11 @@ import { from } from 'rxjs';
 const baseUrl = 'http://localhost:2380';
 const cookies = new Cookies();
 
+interface SessionData {
+  selfId: string,
+  token: string
+}
+
 class AuthService {
  
   signUp(data: SignUpFormData) {
@@ -17,8 +22,21 @@ class AuthService {
     return from(axios.post(`${baseUrl}/signin`, data));
   }
   
-  setToken(token: string) {
+  setSessionData({selfId, token}: SessionData) {
+    cookies.set('auth_selfId', selfId);
     cookies.set('auth_token', token);
+  }
+  
+  get getSessionId(): string {
+    return cookies.get('auth_selfId');
+  }
+  
+  get getSessionToken(): string {
+    return cookies.get('auth_token');
+  }
+  
+  isSetSessionData(): boolean {
+    return !!this.getSessionId && !!this.getSessionToken;
   }
 
 }
