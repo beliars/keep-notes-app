@@ -1,10 +1,9 @@
 import axios from 'axios';
 import {Cookies} from "react-cookie";
-
-import { SignUpFormData } from '../../components/pages/SignUp/SignUpForm/SignUpForm';
 import { from } from 'rxjs';
 
-const baseUrl = 'http://localhost:2380';
+import { SignUpFormData } from '../../components/pages/SignUp/SignUpForm/SignUpForm';
+
 const cookies = new Cookies();
 
 interface SessionData {
@@ -15,11 +14,11 @@ interface SessionData {
 class AuthService {
  
   signUp(data: SignUpFormData) {
-    return from(axios.post(`${baseUrl}/signup`, data));
+    return from(axios.post('/signup', data));
   }
   
   signIn(data: SignUpFormData) {
-    return from(axios.post(`${baseUrl}/signin`, data));
+    return from(axios.post('/signin', data));
   }
   
   setSessionData({selfId, token}: SessionData) {

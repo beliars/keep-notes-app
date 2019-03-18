@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
+import "../../axios.config";
+
 import './App.scss';
 import store from '../../redux/store';
 import Routes from '../../routes/Routes';
