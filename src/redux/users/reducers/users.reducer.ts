@@ -8,11 +8,10 @@ import { UserModel } from '../../../shared/models/user.model';
 
 export function reducer(state = initialState, action: Actions): UsersState {
   switch (action.type) {
+    
     case ActionTypes.SET_SELF_DATA: {
-      
       const updatedEntities = updateEntities(action.payload, UserModel);
       const user = new UserModel(action.payload);
-  
       return {
         ...state,
         entities: Object.assign({}, state.entities, updatedEntities.entities),
@@ -20,6 +19,7 @@ export function reducer(state = initialState, action: Actions): UsersState {
         selfDataId: user._id,
       };
     }
+    
     default:
       return state;
   }

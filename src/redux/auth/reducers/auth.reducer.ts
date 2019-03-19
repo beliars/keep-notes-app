@@ -8,6 +8,7 @@ export function reducer(state = initialState, action: Actions): AuthState {
         ...state,
         selfId: action.payload.selfId,
         token: action.payload.token,
+        isGuest: false,
       };
     }
   

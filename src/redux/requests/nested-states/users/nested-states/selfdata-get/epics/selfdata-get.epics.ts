@@ -4,14 +4,14 @@ import { ofType } from 'redux-observable';
 import { AxiosResponse } from 'axios';
 
 import { SelfDataGetActionTypes, SelfDataGetAction } from '../actions';
-import authService from '../../../../../../../shared/services/auth.service';
+import usersService from '../../../../../../../shared/services/users.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 
 export const selfDataGetEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(SelfDataGetActionTypes.REQUEST),
   switchMap((action: SelfDataGetAction): Observable<Action> => {
-    return authService.signUp(action.payload).pipe(
+    return usersService.getSelfData(action.payload).pipe(
       map((res: AxiosResponse) => ({
         type: SelfDataGetActionTypes.REQUEST_SUCCESS,
         payload: res,
