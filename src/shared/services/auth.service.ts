@@ -34,8 +34,10 @@ class AuthService {
     return cookies.get('auth_token');
   }
   
-  isSetSessionData(): boolean {
-    return !!this.getSessionId && !!this.getSessionToken;
+  get isSetSessionData(): boolean {
+    return this.getSessionId !== "undefined" &&
+      this.getSessionToken !== "undefined" &&
+      (!!this.getSessionId && !!this.getSessionToken);
   }
 
 }
