@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { ActionTypes, GetSelfDataAction } from '../actions';
 import * as usersRequests from '../../requests/nested-states/users/actions';
+import * as authRequests from '../../requests/nested-states/auth/actions';
 
 const getSelfDataEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(
@@ -19,11 +20,18 @@ const getSelfDataEpic = (action$: Observable<Action>) => action$.pipe(
 const setSelfDataEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(
     usersRequests.SelfDataGetActionTypes.REQUEST_SUCCESS,
+    authRequests.SignInActionTypes.REQUEST_SUCCESS,
+    authRequests.SignUpActionTypes.REQUEST_SUCCESS,
   ),
-  map((action: usersRequests.SelfDataGetSuccessAction) => {
+  map((
+    action: usersRequests.SelfDataGetSuccessAction |
+    authRequests.SignInSuccessAction |
+    authRequests.SignUpSuccessAction
+  ) => {
+    const user = action.payload.data.user || action.payload.data;
     return {
       type: ActionTypes.SET_SELF_DATA,
-      payload: action.payload.data,
+      payload: user,
     }
   }),
 );
