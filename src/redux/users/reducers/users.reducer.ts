@@ -19,6 +19,13 @@ export function reducer(state = initialState, action: Actions): UsersState {
         selfDataId: user._id,
       };
     }
+  
+    case ActionTypes.CLEAR_SELF_DATA: {
+      return {
+        ...state,
+        selfDataId: '',
+      };
+    }
     
     default:
       return state;

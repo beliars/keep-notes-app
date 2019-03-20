@@ -36,7 +36,17 @@ const setSelfDataEpic = (action$: Observable<Action>) => action$.pipe(
   }),
 );
 
+const clearSelfDataEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(
+    authRequests.SignOutActionTypes.REQUEST_SUCCESS,
+  ),
+  map((action: authRequests.SignOutSuccessAction) => {
+    return {type: ActionTypes.CLEAR_SELF_DATA}
+  }),
+);
+
 export const usersEpics = [
   getSelfDataEpic,
   setSelfDataEpic,
+  clearSelfDataEpic,
 ];

@@ -6,6 +6,7 @@ export const ActionTypes = {
   GET_SELF_DATA: `[${USERS}] Get Self Data`,
   SET_SELF_DATA: `[${USERS}] Set Self Data`,
   UPDATE_SELF_DATA: `[${USERS}] Update Self Data`,
+  CLEAR_SELF_DATA: `[${USERS}] Clear Self Data`,
 };
 
 export class GetSelfDataAction implements Action {
@@ -26,4 +27,10 @@ export class UpdateSelfDataAction implements Action {
   constructor(public payload?: any) {}
 }
 
-export type Actions = GetSelfDataAction | SetSelfDataAction | UpdateSelfDataAction;
+export class ClearSelfDataAction implements Action {
+  type = ActionTypes.CLEAR_SELF_DATA;
+  
+  constructor(public payload?: any) {}
+}
+
+export type Actions = GetSelfDataAction | SetSelfDataAction | UpdateSelfDataAction | ClearSelfDataAction;
