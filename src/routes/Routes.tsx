@@ -9,7 +9,7 @@ import SignUp from '../components/pages/SignUp/SignUp';
 import SignIn from '../components/pages/SignIn/SignIn';
 import Home from '../components/pages/Home/Home';
 import Trash from '../components/pages/Trash/Trash';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 import NotFound from '../components/pages/NotFound/NotFound';
 
 import { RootState } from '../redux/store';
@@ -51,8 +51,8 @@ class Routes extends Component<Props> {
             <Switch>
               <Route path="/sign-up" exact component={SignUp}/>
               <Route path="/sign-in" exact component={SignIn}/>
-              <PrivateRoute path='/' exact component={Home} isGuest={isGuest}/>
-              <PrivateRoute path="/trash" component={Trash} isGuest={isGuest}/>
+              <PrivateRoute path='/' exact component={Home}/>
+              <PrivateRoute path="/trash" component={Trash}/>
               <Route component={NotFound}/>
             </Switch>
           </main>
