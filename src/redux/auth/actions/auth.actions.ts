@@ -5,6 +5,7 @@ const AUTH = 'Auth';
 export const ActionTypes = {
   SIGN_UP: `[${AUTH}] Sign Up`,
   SIGN_IN: `[${AUTH}] Sign In`,
+  SIGN_OUT: `[${AUTH}] Sign Out`,
   
   SET_SESSION_DATA: `[${AUTH}] Set Session Data`,
   REMOVE_SESSION_DATA: `[${AUTH}] Remove Session Data`,
@@ -21,6 +22,12 @@ export class SignUpAction implements Action {
 
 export class SignInAction implements Action {
   type = ActionTypes.SIGN_IN;
+  
+  constructor(public payload?: any) {}
+}
+
+export class SignOutAction implements Action {
+  type = ActionTypes.SIGN_OUT;
   
   constructor(public payload?: any) {}
 }
@@ -51,5 +58,5 @@ export class SetGuestIsFalseAction implements Action {
   }
 }
 
-export type Actions = SignUpAction | SignInAction | SetSessionDataAction |
+export type Actions = SignUpAction | SignInAction | SignOutAction | SetSessionDataAction |
   RemoveSessionDataAction | SetGuestIsTrueAction | SetGuestIsFalseAction;

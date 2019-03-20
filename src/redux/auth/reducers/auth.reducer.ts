@@ -17,6 +17,7 @@ export function reducer(state = initialState, action: Actions): AuthState {
         ...state,
         selfId: '',
         token: '',
+        isGuest: true,
       };
     }
   

@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 
 import * as authRequests from '../../requests/nested-states/auth/actions';
 import * as usersRequests from '../../requests/nested-states/users/actions';
-import { ActionTypes, SignInAction, SignUpAction } from '../actions';
+import { ActionTypes, SetGuestIsTrueAction, SignInAction, SignOutAction, SignUpAction } from '../actions';
 import authService from '../../../shared/services/auth.service';
 
 const signUpEpic = (action$: Observable<Action>) => action$.pipe(
@@ -25,6 +25,16 @@ const signInEpic = (action$: Observable<Action>) => action$.pipe(
   ),
   map((action: SignInAction) => ({
     type: authRequests.SignInActionTypes.REQUEST,
+    payload: action.payload,
+  })),
+);
+
+const signOutEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(
+    ActionTypes.SIGN_OUT,
+  ),
+  map((action: SignOutAction) => ({
+    type: authRequests.SignOutActionTypes.REQUEST,
     payload: action.payload,
   })),
 );
@@ -66,11 +76,20 @@ const failAuthEpic = (action$: Observable<Action>) => action$.pipe(
     usersRequests.SelfDataGetActionTypes.REQUEST_FAIL,
   ),
   map((action: authRequests.SignUpFailAction | authRequests.SignInFailAction | authRequests.SignUpSuccessAction) => {
-    return {type: ActionTypes.SET_GUEST_IS_FALSE}
+    return {type: ActionTypes.SET_GUEST_IS_TRUE}
   }),
 );
 
-const setTokenEpic = (action$: Observable<Action>) => action$.pipe(
+const signOutSuccessEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(
+    authRequests.SignOutActionTypes.REQUEST_SUCCESS,
+  ),
+  map((action: authRequests.SignOutSuccessAction) => {
+    return {type: ActionTypes.REMOVE_SESSION_DATA}
+  }),
+);
+
+const setSessionDataEpic = (action$: Observable<Action>) => action$.pipe(
   ofType(
     ActionTypes.SET_SESSION_DATA,
   ),
@@ -80,11 +99,23 @@ const setTokenEpic = (action$: Observable<Action>) => action$.pipe(
   ignoreElements(),
 );
 
+const removeSessionDataEpic = (action$: Observable<Action>) => action$.pipe(
+  ofType(
+    ActionTypes.SET_GUEST_IS_TRUE,
+    ActionTypes.REMOVE_SESSION_DATA,
+  ),
+  tap(() => authService.removeSessionData()),
+  ignoreElements(),
+);
+
 export const authEpics = [
   signUpEpic,
   signInEpic,
+  signOutEpic,
   successAuthEpic,
   failAuthEpic,
   successGetSelfDataEpic,
-  setTokenEpic,
+  setSessionDataEpic,
+  removeSessionDataEpic,
+  signOutSuccessEpic,
 ];
