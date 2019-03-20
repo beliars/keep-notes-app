@@ -3,6 +3,7 @@ import {Cookies} from "react-cookie";
 import { from } from 'rxjs';
 
 import { SignUpFormData } from '../../components/pages/SignUp/SignUpForm/SignUpForm';
+import { SignInFormData } from '../../components/pages/SignIn/SignInForm/SignInForm';
 
 const cookies = new Cookies();
 
@@ -17,13 +18,22 @@ class AuthService {
     return from(axios.post('/signup', data));
   }
   
-  signIn(data: SignUpFormData) {
+  signIn(data: SignInFormData) {
     return from(axios.post('/signin', data));
+  }
+  
+  signOut() {
+    return from(axios.get('/signout'));
   }
   
   setSessionData({selfId, token}: SessionData) {
     cookies.set('auth_selfId', selfId);
     cookies.set('auth_token', token);
+  }
+  
+  removeSessionData() {
+    cookies.remove('auth_selfId');
+    cookies.remove('auth_token');
   }
   
   get getSessionId(): string {
