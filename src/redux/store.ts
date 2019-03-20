@@ -1,6 +1,9 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import {combineEpics, createEpicMiddleware} from 'redux-observable';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
+
+import createBrowserHistory from 'history/createBrowserHistory';
 
 // states
 import { RequestsState } from './requests/states';
@@ -21,6 +24,7 @@ import { applicationEpics } from './application/epics';
 import { authEpics } from './auth/epics';
 import { usersEpics } from './users/epics';
 
+export const history = createBrowserHistory();
 
 export interface RootState {
   requests: RequestsState,
@@ -29,7 +33,8 @@ export interface RootState {
   users: UsersState,
 }
 
-const rootReducer = combineReducers({
+const rootReducer = (history: any) => combineReducers({
+  router: connectRouter(history),
   requests: requestsReducer,
   form: formReducer,
   application: applicationReducer,
@@ -48,10 +53,12 @@ const epicMiddleware = createEpicMiddleware();
 
 const middleware = [
   epicMiddleware,
+  routerMiddleware(history),
 ];
 
-const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(...middleware),
+const store = createStore(
+  rootReducer(history),
+  composeWithDevTools(applyMiddleware(...middleware),
 ));
 
 epicMiddleware.run(rootEpic);
