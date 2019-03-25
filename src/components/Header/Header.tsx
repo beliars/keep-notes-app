@@ -9,11 +9,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 
-import { RootState } from '../../../redux/store';
-import { ApplicationState } from '../../../redux/application/states';
-import { ActionTypes as ApplicationActionTypes} from '../../../redux/application/actions';
-import { ActionTypes as AuthActionTypes} from '../../../redux/auth/actions';
-import AlertModal from '../AlertModal/AlertModal';
+import { RootState } from '../../redux/store';
+import { ApplicationState } from '../../redux/application/states';
+import { ActionTypes as ApplicationActionTypes} from '../../redux/application/actions/index';
+import { ActionTypes as AuthActionTypes} from '../../redux/auth/actions/index';
+import AlertModal from '../../shared/components/AlertModal/AlertModal';
 
 const styles = createStyles({
   root: {

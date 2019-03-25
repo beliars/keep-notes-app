@@ -2,54 +2,56 @@
 
 .app {
   .main {
-    .signup-page,
-    .signin-page {
-      .page-title {
-        text-align: center;
-        margin: 70px 0 50px;
-        font-size: 36px;
-        color: $gray;
-      }
-      .signup-form,
-      .signin-form {
-        text-align: center;
-        width: 380px;
-        margin: 0 auto;
-        padding: 20px 20px 50px;
-        border: 1px solid gray;
-        border-radius: 5px;
-        background: $light-gray;
-        .form-field-wrapper {
-          display: flex;
-          justify-content: center;
-          .form-field {
-            width: 300px;
-          }
-        }
-        .btn-wrap {
-          margin-top: 25px;
-        }
-      }
-      .link-wrap {
-        text-align: center;
-        margin: 20px 0;
-        .link {
-          font-size: 16px;
-          text-decoration: none;
+    .content {
+      .signup-page,
+      .signin-page {
+        .page-title {
+          text-align: center;
+          margin: 70px 0 50px;
+          font-size: 36px;
           color: $gray;
         }
+        .signup-form,
+        .signin-form {
+          text-align: center;
+          width: 380px;
+          margin: 0 auto;
+          padding: 20px 20px 50px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          background: $light-gray;
+          .form-field-wrapper {
+            display: flex;
+            justify-content: center;
+            .form-field {
+              width: 300px;
+            }
+          }
+          .btn-wrap {
+            margin-top: 25px;
+          }
+        }
+        .link-wrap {
+          text-align: center;
+          margin: 20px 0;
+          .link {
+            font-size: 16px;
+            text-decoration: none;
+            color: $gray;
+          }
+        }
       }
-    }
-    .form-field-wrapper {
-      position: relative;
-      .error {
-        &.error-field {
-          position: absolute;
-          bottom: -12px;
-          color: #f43;
-          font-size: 12px;
-          text-align: left;
-          display: block;
+      .form-field-wrapper {
+        position: relative;
+        .error {
+          &.error-field {
+            position: absolute;
+            bottom: -12px;
+            color: #f43;
+            font-size: 12px;
+            text-align: left;
+            display: block;
+          }
         }
       }
     }
