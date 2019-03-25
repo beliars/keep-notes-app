@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import authService from './shared/services/auth.service';
 
-axios.defaults.baseURL = 'http://localhost:2380';
+axios.defaults.baseURL = 'http://localhost:2382';
 
 axios.interceptors.request.use((config) => {
   const token = authService.getSessionToken;
