@@ -1,5 +1,14 @@
 @import '../../styles/variables';
 
-.app-drawer {
+.app-sidebar {
+  width: $sidebar-width;
+  height: calc(100vh - 64px);
+  background: gold;
+  transition: all .3s ease-out;
+  &.open {
+    margin: 0;
+  }
+  &.close {
+    margin-left: -($sidebar-width);
+  }
 }
-

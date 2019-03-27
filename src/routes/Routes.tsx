@@ -53,6 +53,7 @@ class Routes extends Component<Props> {
           <main className='main'>
             {!isGuest ? <Header/> : null}
             <div className="content">
+              {!isGuest ? <Sidebar/> : null}
               <Switch>
                 <AuthRoute path='/sign-up' exact component={SignUp}/>
                 <AuthRoute path='/sign-in' exact component={SignIn}/>

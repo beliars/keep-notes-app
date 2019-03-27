@@ -3,6 +3,15 @@
 .app {
   .main {
     .content {
+      display: flex;
+      .content-page {
+        &.sidebar-is-opened {
+          width: calc(100% - #{$sidebar-width})
+        }
+        &.sidebar-is-closed {
+          width: 100%;
+        }
+      }
       .signup-page,
       .signin-page {
         .page-title {
